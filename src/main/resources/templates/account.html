@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="UTF-8" content="text/html; charset=UTF-8"/>
+		<title>Nowe konto</title>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+		<link th:href="@{/css/materialize.css}" type="text/css" rel="stylesheet" media="screen,projection"/>
+		<link th:href="@{/css/styles.css}" type="text/css" rel="stylesheet" media="screen,projection"/>
+	</head>
+	<body>	
+		<div class="container">
+			<div class="section">
+				<div class="row marg-top-20">
+					<div class="col s8 offset-s2">
+						<div class="row no-marg-bottom">
+							<nav>
+								<div class="nav-wrapper">
+									<a class="brand-logo center">Dodaj nowe konto</a>
+								</div>
+							</nav>
+						</div>
+						<div class="row card-panel hoverable no-marg-top">
+							<form class="col s12" method="post" th:action="@{/account}" th:object="${accountCreateForm}">
+								<div class="row">
+									<div class="input-field col s12">
+										<input th:field="*{email}" id="email" type="email" name="email" required="required" placeholder="E-mail"/>
+										<span class="error-block" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Register error</span>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<input th:field="*{password}" id="password" type="password" name="password" required="required" placeholder="Hasło"/>
+										<span class="error-block" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Register error</span>
+									</div>
+								</div>
+								<div class="row">
+									<div class="input-field col s12">
+										<input th:field="*{passwordRepeated}" id="passwordRepeated" type="password" name="passwordRepeated" required="required" placeholder="Powtórz hasło"></input>
+										<span class="error-block" th:if="${#fields.hasErrors('passwordRepeated')}" th:errors="*{passwordRepeated}">Register error</span>
+									</div>
+								</div>
+								<div class="row center">
+									<button type="submit" class="waves-effect waves-light btn">Dodaj konto</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+	</body>
+</html>

@@ -1,0 +1,2 @@
+INSERT INTO users (email, password, role, is_add) VALUES ('jwitkowicz@gmail.com', '1234', 'USER', TRUE);
+INSERT INTO users (email, password, role, is_add) VALUES ('jrswtk@gmail.com', '1234', 'USER', FALSE);

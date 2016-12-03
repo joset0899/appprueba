@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="UTF-8" content="text/html; charset=UTF-8"/>
+		<title>Administrator</title>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+		<link th:href="@{/css/materialize.css}" type="text/css" rel="stylesheet" media="screen,projection"/>
+		<link th:href="@{/css/styles.css}" type="text/css" rel="stylesheet" media="screen,projection"/>
+	</head>
+	<body>
+		<div class="navbar z-depth-2">
+			<nav>
+				<div class="container nav-wrapper">
+					<ul th:if="${currentUser != null}" class="right">
+						<li><a th:text="${currentUser.username}">Username</a></li>
+						<li><form method="post" th:action="@{/logout}"><button type="submit" class="waves-effect waves-light btn">Wyloguj</button></form></li>
+					</ul>
+					<ul th:if="${currentUser != null}" class="left">
+						<li><a th:href="@{/}">Panel logowania</a></li>
+						<ul id="dropdown1" class="dropdown-content">
+  							<li class="active"><a th:href="@{/admin/add}">Dodaj użytkownika</a></li>
+  							<li><a th:href="@{/admin/delete}">Usuń użytkownika</a></li>
+						</ul>
+						<li class="active" th:if="${userRole.toString() == 'ADMIN'}"><a class="dropdown-button" href="#!" data-activates="dropdown1">Panel administracyjny<i class="material-icons right">arrow_drop_down</i></a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>	
+		<div class="container">
+			<div class="section">
+				<div class="row marg-top-20">
+					<div class="col s8 offset-s2">
+						<div class="row no-marg-bottom">
+							<nav>
+								<div class="nav-wrapper">
+									<a class="brand-logo center">Dodaj użytkownika</a>
+								</div>
+							</nav>
+						</div>
+						<div class="row card-panel hoverable no-marg-top">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-12">
+										<table class="bordered">
+											<thead>
+												<th>Pozycja</th>
+												<th>Użytkownik</th>
+												<th>Akcja</th>
+											</thead>
+											<tbody>
+												<tr th:each="user, iter : ${usersNotAdded}">
+													<td><p th:text="${iter.count}">Index</p></td>
+													<td><p th:text="${user.email}">E-mail</p></td>
+													<td><form th:action="@{/admin/add/__${user.id}__}" method="post"><button type="submit" class="waves-effect waves-light btn">Dodaj</button></form></td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+	</body>
+</html>
