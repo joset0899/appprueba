@@ -14,15 +14,15 @@
 				<div class="container nav-wrapper">
 					<ul th:if="${currentUser != null}" class="right">
 						<li><a th:text="${currentUser.username}">Username</a></li>
-						<li><form method="post" th:action="@{/logout}"><button type="submit" class="waves-effect waves-light btn">Wyloguj</button></form></li>
+						<li><form method="post" th:action="@{/logout}"><button type="submit" class="waves-effect waves-light btn">Logout</button></form></li>
 					</ul>
 					<ul th:if="${currentUser != null}" class="left">
-						<li class="active"><a th:href="@{/}">Panel logowania</a></li>
+						<li class="active"><a th:href="@{/}">Inicio</a></li>
 						<ul id="dropdown1" class="dropdown-content">
-  							<li><a th:href="@{/admin/add}">Dodaj użytkownika</a></li>
-  							<li><a th:href="@{/admin/delete}">Usuń użytkownika</a></li>
+  							<li><a th:href="@{/account}">Crear usuario</a></li>
+  							<li><a th:href="@{/admin/formprod}">Formulación Producto</a></li>
 						</ul>
-						<li th:if="${userRole.toString() == 'ADMIN'}"><a class="dropdown-button" href="#!" data-activates="dropdown1">Panel administracyjny<i class="material-icons right">arrow_drop_down</i></a></li>
+						<li th:if="${userRole.toString() == 'ADMIN'}"><a class="dropdown-button" href="#!" data-activates="dropdown1">Panel <i class="material-icons right">arrow_drop_down</i></a></li>
 					</ul>
 				</div>
 			</nav>
@@ -34,7 +34,7 @@
 						<div class="row no-marg-bottom">
 							<nav>
 								<div class="nav-wrapper">
-									<a class="brand-logo center">Ostatnie logowania</a>
+									<a class="brand-logo center">Formulario</a>
 								</div>
 							</nav>
 						</div>

@@ -31,38 +31,70 @@
 		<div class="container">
 			<div class="section">
 				<div class="row marg-top-20">
-					<div class="col s8 offset-s2">
+					<div class=".col-xs-12 .col-sm-6 .col-lg-8">
 						<div class="row no-marg-bottom">
 							<nav>
 								<div class="nav-wrapper">
-									<a class="brand-logo center">Nuevo/Edicion de usuario</a>
+									<a class="brand-logo center">Consulta Formulación de Producto	</a>
 								</div>
 							</nav>
 						</div>
 						<div class="row card-panel hoverable no-marg-top">
 							<form class="col s12" method="post" th:action="@{/account}" th:object="${accountCreateForm}">
-								<div class="row">
+								
 									<div class="input-field col s12">
-										<input th:field="*{email}" id="email" type="text" name="email" required="required" placeholder="User"/>
-										<span class="error-block" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Register error</span>
+									    <select>
+									      <option value="1">Option 1</option>
+									      <option value="2">Option 2</option>
+									      <option value="3">Option 3</option>
+									    </select>
+									    <label>Familia</label>
 									</div>
-								</div>
-								<div class="row">
+								
+								
 									<div class="input-field col s12">
-										<input th:field="*{password}" id="password" type="password" name="password" required="required" placeholder="Password"/>
+										<div class="input-field col s12">
+											<select >
+											  <option>Clase 1</option>
+											  <option>Clase 2</option>
+											  <option>Clase 3</option>
+											</select>
+											<label>Clase</label>
+										</div>
 										<span class="error-block" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Register error</span>
 									</div>
-								</div>
-								<div class="row">
+								
+								
 									<div class="input-field col s12">
-										<input th:field="*{passwordRepeated}" id="passwordRepeated" type="password" name="passwordRepeated" required="required" placeholder="Repetir password"></input>
+										<input th:field="*{passwordRepeated}" id="passwordRepeated" type="password" name="passwordRepeated" required="required" placeholder="Nombre"></input>
 										<span class="error-block" th:if="${#fields.hasErrors('passwordRepeated')}" th:errors="*{passwordRepeated}">Register error</span>
 									</div>
-								</div>
+								
 								<div class="row center">
-									<button type="submit" class="waves-effect waves-light btn">Aceptar</button>
+									<button type="submit" class="waves-effect waves-light btn">Buscar</button>
 								</div>
 							</form>
+							
+						</div>
+						<div class="row card-panel hoverable no-marg-top">
+							<div class="container">
+								<div class="row">
+									<div class="col-md-12">
+										<table class="bordered">
+											<thead>
+												<th>NRO</th>
+												<th>NOMBRE</th>
+												<th>CANTIDAD</th>
+												<th>STOCK ACTUAL </th>
+												<th>UNIDAD</th>
+											</thead>
+											<tbody>
+												
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -70,5 +102,10 @@
 		</div>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+  		<script type="text/javascript">
+  			$(document).ready(function() {
+  		   		 $('select').material_select();
+  		  	});
+  		</script>
 	</body>
 </html>
