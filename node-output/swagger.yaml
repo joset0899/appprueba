@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Simple Inventory API
-  description: This is a simple API
+  description: This is a simple API 2
   contact:
     email: you@your-company.com
   license:
@@ -9,6 +9,8 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   version: 1.0.0
 servers:
+- url: https://virtserver.swaggerhub.com/STAGE-EDICION/API-Cientes/1.0.0
+  description: SwaggerHub API Auto Mocking
 - url: https://virtserver.swaggerhub.com/JOSEALCIDESVALENZUEL/API-Cientes/1.0.0
   description: SwaggerHub API Auto Mocking
 tags:
